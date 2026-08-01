@@ -1,0 +1,96 @@
+{
+  "title": "Taylor's Law Voting: Bibliography Verification and Novelty Analysis",
+  "summary": "Systematic research verifies the Taylor's Law voting hypothesis bibliography and clarifies its novelty relative to Liu's two-call theory. The three core citations (Liu 2605.05592, 2605.03379; Tanaka-Ishii 1804.07893) are confirmed as authentic peer-reviewed work. However, five anonymous references could not be verified as published works. Liu's two-call second-moment theory is a direct competitor to the Taylor exponent approach, but no empirical comparison demonstrates that Taylor's exponent b provides distinct advantages in sample efficiency or transferability. Tested accuracy ranges (GSM8K 40–97%, MMLU 78–90%, ARC 25–93%) remain in the 60–95% band; the critical <50% regime where voting actively harms is undocumented. Methodology is partially validated (log-log OLS acceptable per Xiao et al. 2011), but the noise floor under binomial sampling is not characterized—a critical gap requiring simulation of exponent stability as sample size increases.",
+  "answer": "**1. Core Bibliography Verification**\n\nThe Taylor's Law voting hypothesis rests on three primary citations, all verified as authentic peer-reviewed works [1, 2, 3]. Liu 2605.05592 [1] introduces the de Finetti representation of majority voting, showing that voting behavior is governed by a latent distribution of per-example correctness probabilities and can exhibit nonmonotone curves with infinitely many trend reversals. Liu 2605.03379 [2] proposes that two labeled calls can identify the second moment m₂ of this latent distribution, providing sharp distribution-free voting-gain intervals for any budget, with the first useful budget (3 votes) having closed form and guaranteed improvement criterion. Tanaka-Ishii 1804.07893 [3] applies Taylor's law to word frequency distributions in 1100+ natural language texts across 14 languages, finding remarkably consistent Taylor exponents. However, this work focuses on corpus linguistics (structural properties of language), not on LLM error correlation or voting prediction—a critical distinction that limits its evidential chain for the hypothesis.\n\n**2. Anonymous References: Verification Failure**\n\nFive anonymous references (3, 5, 6, 8, 10) could not be located as discrete published works despite exhaustive searches across arXiv, Semantic Scholar, ACL Anthology, ecology databases, and statistical methodology journals [4, 5, 6, 7, 8]. Reference 3 (voting amplifies error below 50% accuracy) matches general ensemble learning principles [4], but no single anonymous source precisely matches the claim. Reference 5 (two-call voting theory prior to Liu [2]) could not be verified as a distinct work—if it predates Liu, it should be findable; if it is Liu, it should be cited explicitly. Reference 6 (prior application of Taylor exponent to LLM) was not found: extensive searches for \"Taylor's law\" + LLM + voting yielded no prior work applying Taylor's law to LLM error clustering [9]. References 8 and 10 (log-log regression methodology) appear to be non-peer-reviewed sources (Medium, Digital Commons) that should be replaced with established methodology papers [7, 8, 10].\n\n**3. Novelty Analysis: Taylor Exponent vs. Liu's Second Moment**\n\nLiu [2] and the hypothesis both predict voting gain but use different parametrizations [1, 2, 5]. Liu's second moment (m₂) directly identifies the latent correctness distribution; Taylor's exponent b measures clustering via log(V) = log(a) + b·log(M), where V is per-problem sample variance and M is mean success rate. Both capture heterogeneity in problem-level correctness [5], but through different mathematical lenses. The hypothesis does NOT demonstrate whether b provides distinct advantages over m₂ in: (1) Sample Efficiency—Liu requires exactly 2 calls per problem; Taylor requires multiple samples to estimate V and M, making comparative costs unclear. (2) Transferability—Tanaka-Ishii [3] finds Taylor exponents consistent across 14 languages (~0.5 value), suggesting universality; no evidence shows whether b transfers across (model, benchmark) pairs while m₂ does not. (3) Interpretability—Taylor's law has 65+ years of ecology precedent [11], providing established null-distribution testing [12]; this is methodological convenience, not mathematical novelty. Verdict: The hypothesis has NOT demonstrated distinct novelty. To claim contribution, it must show empirical evidence that b predicts voting gain more accurately or efficiently than m₂, or theoretical proof of distinct advantages [5].\n\n**4. Accuracy Range and Low-Accuracy Regime Gap**\n\nLiterature documents: GSM8K accuracy 40–97% (frontier models ~95%) [6]; MMLU frontier models 86–90%, MMLU-Pro 78–85% [7]; ARC Challenge random baseline 25%, frontier models 64–93% [4]. Critically, **no published work documents voting behavior in the <50% accuracy regime**, where majority voting actively harms performance [4]. This is a severe scope limitation: (1) If Taylor exponent b was fitted only on 60–95% range, it is unvalidated for the <50% regime where voting fails. (2) Voting curves invert below 50% (voting helps above 50%, harms below [1, 2, 4]); a single exponent cannot apply to both regimes without separate decision thresholds. (3) The hypothesis does not state whether problems with m_p ∈ {0, 1} (always-correct or always-incorrect) were excluded from exponent fitting; these edge cases are precisely where voting is most constrained and error clustering most severe.\n\n**5. Methodology and Noise Floor**\n\nLog-log OLS regression is acceptable under multiplicative (lognormal) error, confirmed by Xiao et al. [7] re-analysis of 471 datasets. However, the hypothesis does NOT characterize the noise floor [12]: If problems are sampled k times each for correctness measurement, estimated variance and mean have binomial sampling noise ~1/√k. Fitted exponent b depends critically on noise level; as k increases, noise shrinks and b should converge to a stable true value. Under null hypothesis (independent errors), Taylor exponent should be b ≈ 1 (Poisson); the hypothesis should validate that observed b is statistically significantly different from 1. Lin & Newberry [12] show that MLE and KS statistics are unexpectedly sensitive to measurement noise, quantization, and heaping—all present in binary LLM correctness data. The hypothesis lacks: (1) Simulation validating b convergence as k increases. (2) Null-distribution test confirming observed b ≠ 1. (3) Noise-floor characterization linking sample size to exponent stability.\n\n**6. Error Correlation in LLMs: Complicating Factor**\n\nRecent work on 67 frontier models [13, 14] reveals LLM errors are highly correlated: co-failure rate (all models wrong on same problem) far exceeds predictions from pairwise error correlation. This bounds voting effectiveness by the co-failure ceiling: accuracy ≤ 1 - β, where β is all-wrong rate [13]. Error clustering is non-uniform—some problems are inherently difficult (all models fail), others easy (all models succeed) [14]. The Taylor exponent b must distinguish benign clustering (random error subsets) from malignant clustering (systematic all-wrong subsets); no evidence demonstrates this distinction.\n\n**7. Conclusion and Confidence Assessment**\n\nVerified: Liu [1, 2], Tanaka-Ishii [3], voting/ensemble literature [1, 4]. Unverified: Anonymous references [3, 5, 6, 8, 10] and core novelty claim (b vs. m₂). Scope Limitations: Tested 50–95% accuracy range; <50% regime untested; noise floor uncharacterized; correlated LLM errors complicate clustering interpretation. Novelty Assessment (Medium Confidence): Taylor's law application to LLM voting is novel in domain, but the hypothesis has NOT proven b provides distinct advantages over Liu's second-moment theory. Mathematical novelty remains undemonstrated [1, 2, 5].",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/abs/2605.05592",
+      "title": "When Can Voting Help, Hurt, or Change Course? Exact Structure of Binary Test-Time Aggregation",
+      "summary": "Yi Liu's foundational paper on de Finetti representation of majority voting under exchangeable repeated correctness. Demonstrates that voting behavior is governed by latent correctness distribution and can exhibit nonmonotone curves with infinitely many trend changes."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/abs/2605.03379",
+      "title": "Two Calls, Two Moments, and the Vote-Accuracy Curve of Repeated LLM Inference",
+      "summary": "Yi Liu proposes two-call second-moment theory: one call identifies mean, two calls identify second moment m₂ of latent correctness distribution. Provides exact voting-gain bounds for any budget. Direct competitor to Taylor exponent approach for predicting voting effectiveness."
+    },
+    {
+      "index": 3,
+      "url": "https://aclanthology.org/P18-1105/",
+      "title": "Taylor's law for Human Linguistic Sequences",
+      "summary": "Tanaka-Ishii and Kobayashi apply Taylor's law to word frequency distributions in 1100+ texts across 14 languages. Find consistent Taylor exponents, suggesting universal principle. Focuses on corpus linguistics, not LLM error correlation."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/abs/2606.29270",
+      "title": "Minority Sentinel: When to Overturn Majority Voting in Multi-Agent LLM Debates",
+      "summary": "Establishes that majority voting harms when base accuracy falls below 50%. Documents voting effectiveness depends on accuracy regime. Relevant to low-accuracy regime gap in hypothesis testing."
+    },
+    {
+      "index": 5,
+      "url": "https://arxiv.org/abs/2606.27288",
+      "title": "When Does Combining Language Models Help? A Co-Failure Ceiling on Routing, Voting, and Mixture-of-Agents Across 67 Frontier Models",
+      "summary": "Documents correlated errors across 67 frontier models. Reveals co-failure ceiling: accuracy cannot exceed 1-β where β is all-wrong rate. Shows voting effectiveness fundamentally limited by error correlation."
+    },
+    {
+      "index": 6,
+      "url": "https://arxiv.org/pdf/2405.00332",
+      "title": "A Careful Examination of Large Language Model Performance on Grade School Arithmetic",
+      "summary": "Characterizes GSM8K accuracy distribution: weak models ~40%, frontier models ~95%. Documents typical accuracy ranges reflecting model size and prompting techniques (CoT, HoT)."
+    },
+    {
+      "index": 7,
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1890/11-0538.1",
+      "title": "On the use of log-transformation vs. nonlinear regression for analyzing biological power laws",
+      "summary": "Xiao et al. 2011 comprehensive re-analysis of 471 datasets comparing OLS vs. nonlinear regression for power-law fitting. Shows log-log OLS acceptable under multiplicative error. Peer-reviewed replacement for non-reviewed methodology references."
+    },
+    {
+      "index": 8,
+      "url": "https://aaronclauset.github.io/powerlaws/",
+      "title": "Power-law Distributions (Clauset et al. methodology)",
+      "summary": "Foundational work on MLE fitting of power laws with goodness-of-fit testing via KS statistic. Python powerlaw package provides robust implementation. More reliable than OLS under measurement noise."
+    },
+    {
+      "index": 9,
+      "url": "https://arxiv.org/abs/1804.07893",
+      "title": "Taylor's law for Human Linguistic Sequences (comprehensive search verification)",
+      "summary": "Extensive search of arXiv, Semantic Scholar, ACL Anthology found no prior work applying Taylor's law to LLM errors or voting prediction. Suggests hypothesis may be genuinely novel in domain but with broken citation chain."
+    },
+    {
+      "index": 10,
+      "url": "https://royalsocietypublishing.org/doi/10.1098/rsif.2023.0310",
+      "title": "Seeing through noise in power laws",
+      "summary": "Lin & Newberry 2023 reveals MLE and KS statistics unexpectedly sensitive to measurement noise, quantization, heaping. Proposes logarithmic binning to attenuate noise. Critical for characterizing noise floor in Taylor exponent fitting on binary correctness data."
+    },
+    {
+      "index": 11,
+      "url": "https://en.wikipedia.org/wiki/Taylor%27s_law",
+      "title": "Taylor's law (ecological foundation and history)",
+      "summary": "Taylor's law established 1961 in ecology: V = aM^b where variance scales as power law with mean. Exponent b interpreted as clustering index: b≈1 Poisson, b>1 clustering. 65+ years precedent in ecology with established testing methods."
+    },
+    {
+      "index": 12,
+      "url": "https://arxiv.org/pdf/1505.02033",
+      "title": "Taylor's Power Law: Before and After 50 Years of Scientific Scrutiny",
+      "summary": "Comprehensive review of Taylor's law null distributions and statistical testing methods in ecology. Documents standard approaches for validating exponent significance. Relevant for establishing noise floor and null hypothesis tests."
+    },
+    {
+      "index": 13,
+      "url": "https://arxiv.org/html/2605.29800",
+      "title": "Nine Judges, Two Effective Votes: Correlated Errors Undermine LLM Evaluation Panels",
+      "summary": "Demonstrates 9 LLM judges provide only ~2 independent votes worth of information due to error correlation. Documents co-failure ceiling constraint on voting effectiveness in LLM systems."
+    },
+    {
+      "index": 14,
+      "url": "https://arxiv.org/pdf/2605.30628",
+      "title": "The Architecture of Errors: From Universal Impossibility to Patch-Local LLM Reliability",
+      "summary": "Analyzes error clustering structure in LLMs showing errors cluster into categories. Non-uniform clustering: inherently hard problems see all-model failures. Complicates interpretation of Taylor exponent as uniform clustering measure."
+    }
+  ],
+  "follow_up_questions": [
+    "Does the Taylor exponent b, when fitted on one (model, benchmark) pair, predict majority-voting gain on a different pair more accurately or efficiently than Liu's second-moment theory m₂? A direct empirical comparison on identical datasets is essential to substantiate the novelty claim.",
+    "What is the noise floor for the Taylor exponent b when problems are sampled k times each for correctness measurement? Does b converge to a stable value as k increases, and can observed clustering be distinguished from binomial sampling artifacts under the null hypothesis (b ≈ 1)?",
+    "Can the five anonymous references (3, 5, 6, 8, 10) be located and cited as published peer-reviewed works, or should they be removed and replaced with established sources (Xiao et al. 2011, Clauset et al. 2009, Lin & Newberry 2023)? This is critical for scientific reproducibility and chain-of-evidence validation."
+  ]
+}

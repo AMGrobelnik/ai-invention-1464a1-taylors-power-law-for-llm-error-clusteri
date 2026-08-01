@@ -1,0 +1,317 @@
+{
+  "metadata": {
+    "evaluation_name": "taylor_exponent_predicts_vote_gain",
+    "description": "Validates whether Taylor power-law exponent b reliably predicts voting gains across held-out model/benchmark/difficulty combinations, using the real EXPERIMENT artifact output (gen_art_experiment_1/method_out.json).",
+    "data_granularity_note": "The EXPERIMENT artifact fits b only at the (model, benchmark) level (9 combos, 3 with a null fit due to degenerate m_p in the small budget-scaled sample). combo_level_spearman_* uses that literal b. All other correlation/stratification/transfer/meta-analysis metrics use od_p = v_p_empirical/(m_p*(1-m_p)), the real per-problem overdispersion ratio, as the finest-grained per-problem analog of b, since true per-problem b does not exist in the artifact's output.",
+    "primary_k": 5,
+    "secondary_k": [
+      3,
+      10
+    ],
+    "combo_level_literal_b_result": {
+      "rho": -0.8999999999999998,
+      "p_value": 0.03738607346849874,
+      "ci_low": -1.0,
+      "ci_high": -0.1111111111111111,
+      "n": 5
+    },
+    "within_benchmark_spearman_od_p": {
+      "arc_challenge": {
+        "rho": 0.283894796705145,
+        "p_value": 0.32529276985632327,
+        "ci_low": -0.036402288725144005,
+        "ci_high": 0.5777715390517255,
+        "n": 14
+      },
+      "gsm8k": {
+        "rho": 0.1606438657804998,
+        "p_value": 0.6575205945947158,
+        "ci_low": -0.3320079470373315,
+        "ci_high": 0.5281138830084173,
+        "n": 10
+      },
+      "mmlu": {
+        "rho": 0.25221663615265916,
+        "p_value": 0.3843482964751295,
+        "ci_low": -0.059368954083449534,
+        "ci_high": 0.5539663499266143,
+        "n": 14
+      }
+    },
+    "secondary_k_correlations": {
+      "arc_challenge_k3": {
+        "rho": 0.19388835349515562,
+        "p_value": 0.506578893060866,
+        "ci_low": -0.2532234929949829,
+        "ci_high": 0.5265272697169217,
+        "n": 14
+      },
+      "gsm8k_k3": {
+        "rho": 0.1606438657804998,
+        "p_value": 0.6575205945947158,
+        "ci_low": -0.28347335475692037,
+        "ci_high": 0.5270462766947299,
+        "n": 10
+      },
+      "mmlu_k3": {
+        "rho": 0.2518963609299392,
+        "p_value": 0.38497272135824445,
+        "ci_low": 0.0,
+        "ci_high": 0.5338310879203045,
+        "n": 14
+      },
+      "arc_challenge_k10": {
+        "rho": 0.283894796705145,
+        "p_value": 0.32529276985632327,
+        "ci_low": -0.03641785203646149,
+        "ci_high": 0.574176501329212,
+        "n": 14
+      },
+      "gsm8k_k10": {
+        "rho": 0.1606438657804998,
+        "p_value": 0.6575205945947158,
+        "ci_low": -0.28347335475692037,
+        "ci_high": 0.5113607152467073,
+        "n": 10
+      },
+      "mmlu_k10": {
+        "rho": 0.25221663615265916,
+        "p_value": 0.3843482964751295,
+        "ci_low": -0.07060987881136029,
+        "ci_high": 0.569275042553311,
+        "n": 14
+      }
+    },
+    "stratified_results_holm_bonferroni": {
+      "arc_challenge_low": {
+        "rho": null,
+        "p_value_raw": null,
+        "p_value_holm_bonferroni": 1.0,
+        "n": 5,
+        "significant_fwer_0.05": false
+      },
+      "arc_challenge_medium": {
+        "rho": -0.07319250547113999,
+        "p_value_raw": 0.8515575028022457,
+        "p_value_holm_bonferroni": 1.0,
+        "n": 9,
+        "significant_fwer_0.05": false
+      },
+      "gsm8k_medium": {
+        "rho": 0.1606438657804998,
+        "p_value_raw": 0.6575205945947158,
+        "p_value_holm_bonferroni": 0.6575205945947158,
+        "n": 10,
+        "significant_fwer_0.05": false
+      },
+      "mmlu_medium": {
+        "rho": 0.25221663615265916,
+        "p_value_raw": 0.3843482964751295,
+        "p_value_holm_bonferroni": 0.3843482964751295,
+        "n": 14,
+        "significant_fwer_0.05": false
+      }
+    },
+    "cross_benchmark_transfer": {
+      "arc_challenge": {
+        "rho": 0.283894796705145,
+        "p_value": 0.32529276985632327,
+        "ci_low": -0.03643245512889014,
+        "ci_high": 0.5801969943579748,
+        "n": 14
+      },
+      "mmlu": {
+        "rho": 0.25221663615265916,
+        "p_value": 0.3843482964751295,
+        "ci_low": -0.06431895255815903,
+        "ci_high": 0.5645895715784651,
+        "n": 14
+      }
+    },
+    "meta_analysis": {
+      "pooled_rho": 0.21306434561670928,
+      "ci_low": 0.030334957735495473,
+      "ci_high": 0.38201275010054586,
+      "tau2": 0.0,
+      "i2": 0.0,
+      "q_statistic": 0.7912430550761845,
+      "k_studies": 12
+    },
+    "effect_sizes": {
+      "arc_challenge": {
+        "cohens_d_low_minus_high_od_p": -0.16278112867447067,
+        "n_top_quartile": 12,
+        "n_bottom_quartile": 13
+      },
+      "gsm8k": {
+        "cohens_d_low_minus_high_od_p": -0.12121212121212119,
+        "n_top_quartile": 9,
+        "n_bottom_quartile": 9
+      },
+      "mmlu": {
+        "cohens_d_low_minus_high_od_p": -0.10948978029027176,
+        "n_top_quartile": 13,
+        "n_bottom_quartile": 13
+      }
+    },
+    "noise_floor": {
+      "per_combo_p_values": [
+        0.18076109936575052,
+        0.5118483412322274,
+        0.973170731707317,
+        0.6394230769230769,
+        0.42424242424242425
+      ],
+      "n_combos_tested": 5,
+      "n_combos_rejected_at_0.05": 0,
+      "min_p_value": 0.18076109936575052,
+      "any_rejected": false
+    }
+  },
+  "metrics_agg": {
+    "combo_level_spearman_rho_k5": -0.8999999999999998,
+    "combo_level_spearman_p_k5": 0.03738607346849874,
+    "combo_level_n_combos": 5.0,
+    "within_benchmark_spearman_rho_k5_arc_challenge": 0.283894796705145,
+    "within_benchmark_spearman_p_k5_arc_challenge": 0.32529276985632327,
+    "within_benchmark_spearman_rho_k5_gsm8k": 0.1606438657804998,
+    "within_benchmark_spearman_p_k5_gsm8k": 0.6575205945947158,
+    "within_benchmark_spearman_rho_k5_mmlu": 0.25221663615265916,
+    "within_benchmark_spearman_p_k5_mmlu": 0.3843482964751295,
+    "within_benchmark_spearman_rho_k3_arc_challenge": 0.19388835349515562,
+    "within_benchmark_spearman_rho_k3_gsm8k": 0.1606438657804998,
+    "within_benchmark_spearman_rho_k3_mmlu": 0.2518963609299392,
+    "within_benchmark_spearman_rho_k10_arc_challenge": 0.283894796705145,
+    "within_benchmark_spearman_rho_k10_gsm8k": 0.1606438657804998,
+    "within_benchmark_spearman_rho_k10_mmlu": 0.25221663615265916,
+    "calibration_spearman_rho": 0.3533726723289979,
+    "calibration_r2": 0.08658854166666674,
+    "calibration_rmse": 0.26697785285121217,
+    "cross_benchmark_transfer_rho_arc_challenge": 0.283894796705145,
+    "cross_benchmark_transfer_p_arc_challenge": 0.32529276985632327,
+    "cross_benchmark_transfer_rho_mmlu": 0.25221663615265916,
+    "cross_benchmark_transfer_p_mmlu": 0.3843482964751295,
+    "stratified_p_holm_arc_challenge_low": 1.0,
+    "stratified_rho_arc_challenge_medium": -0.07319250547113999,
+    "stratified_p_holm_arc_challenge_medium": 1.0,
+    "stratified_rho_gsm8k_medium": 0.1606438657804998,
+    "stratified_p_holm_gsm8k_medium": 0.6575205945947158,
+    "stratified_rho_mmlu_medium": 0.25221663615265916,
+    "stratified_p_holm_mmlu_medium": 0.3843482964751295,
+    "noise_floor_n_combos_tested": 5.0,
+    "noise_floor_n_combos_rejected_at_p05": 0.0,
+    "noise_floor_min_p_value": 0.18076109936575052,
+    "noise_floor_any_rejected": 0.0,
+    "meta_pooled_rho": 0.21306434561670928,
+    "meta_pooled_ci_low": 0.030334957735495473,
+    "meta_pooled_ci_high": 0.38201275010054586,
+    "meta_tau2": 0.0,
+    "meta_i2": 0.0,
+    "meta_q_statistic": 0.7912430550761845,
+    "meta_k_studies": 12.0,
+    "cohens_d_arc_challenge": -0.16278112867447067,
+    "cohens_d_gsm8k": -0.12121212121212119,
+    "cohens_d_mmlu": -0.10948978029027176,
+    "n_total_problems": 38.0,
+    "n_combos_with_fitted_b": 5.0,
+    "n_combos_total": 9.0
+  },
+  "datasets": [
+    {
+      "dataset": "arc_challenge",
+      "examples": [
+        {
+          "input": "model=small_3b problem=arc_challenge_569",
+          "output": "delta_5=0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.8,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": 0.19999999999999996
+        },
+        {
+          "input": "model=small_3b problem=arc_challenge_326",
+          "output": "delta_5=0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.8,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": 0.19999999999999996
+        },
+        {
+          "input": "model=small_3b problem=arc_challenge_865",
+          "output": "delta_5=-0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "low",
+          "metadata_m_p": 0.2,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.2
+        }
+      ]
+    },
+    {
+      "dataset": "gsm8k",
+      "examples": [
+        {
+          "input": "model=small_3b problem=gsm8k_1116",
+          "output": "delta_5=-0.4000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.4,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.4
+        },
+        {
+          "input": "model=small_3b problem=gsm8k_178",
+          "output": "delta_5=-0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.2,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.2
+        },
+        {
+          "input": "model=small_3b problem=gsm8k_228",
+          "output": "delta_5=-0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.2,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.2
+        }
+      ]
+    },
+    {
+      "dataset": "mmlu",
+      "examples": [
+        {
+          "input": "model=small_3b problem=mmlu_9674",
+          "output": "delta_5=0.4000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.6,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": 0.4
+        },
+        {
+          "input": "model=small_3b problem=mmlu_520",
+          "output": "delta_5=-0.2000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.2,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.2
+        },
+        {
+          "input": "model=small_3b problem=mmlu_1535",
+          "output": "delta_5=-0.4000",
+          "metadata_model": "small_3b",
+          "metadata_stratum": "medium",
+          "metadata_m_p": 0.4,
+          "predict_od_p_local_b_proxy": "1.2500",
+          "eval_delta_k_actual": -0.4
+        }
+      ]
+    }
+  ]
+}
