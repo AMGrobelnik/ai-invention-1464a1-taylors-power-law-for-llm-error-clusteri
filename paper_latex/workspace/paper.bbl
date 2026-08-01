@@ -1,0 +1,91 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chen(2026)]{Chen2026}
+Josef Chen.
+\newblock When does combining language models help? a co-failure ceiling on
+  routing, voting, and mixture-of-agents across 67 frontier models.
+\newblock 2026.
+
+\bibitem[Holtzman et~al.(2019)Holtzman, Buys, Du, Forbes, and
+  Choi]{Holtzman2019}
+Ari Holtzman, Jan Buys, Li~Du, M.~Forbes, and Yejin Choi.
+\newblock The curious case of neural text degeneration.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/1904.09751, 2019.
+
+\bibitem[Kim(2026)]{Kim2026}
+Donghwan Kim.
+\newblock Are diversity metrics measuring diversity? a capability-controlled
+  audit of majority-vote gain in llm ensembles.
+\newblock 2026.
+
+\bibitem[Kobayashi and Tanaka-Ishii(2018)]{Kobayashi2018}
+Tatsuru Kobayashi and Kumiko Tanaka-Ishii.
+\newblock Taylor's law for human linguistic sequences.
+\newblock In \emph{Annual Meeting of the Association for Computational
+  Linguistics}, pages 1138--1148, 2018.
+\newblock \doi{10.18653/v1/P18-1105}.
+
+\bibitem[Liu(2026{\natexlab{a}})]{Liu2026moments}
+Yi~Liu.
+\newblock Two calls, two moments, and the vote-accuracy curve of repeated llm
+  inference.
+\newblock \emph{ArXiv}, abs/2605.03379, 2026{\natexlab{a}}.
+\newblock \doi{10.48550/arXiv.2605.03379}.
+
+\bibitem[Liu(2026{\natexlab{b}})]{Liu2026voting}
+Yi~Liu.
+\newblock When can voting help, hurt, or change course? exact structure of
+  binary test-time aggregation.
+\newblock \emph{ArXiv}, abs/2605.05592, 2026{\natexlab{b}}.
+\newblock \doi{10.48550/arXiv.2605.05592}.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin,
+  Zhang, Agarwal, Slama, Ray, Schulman, Hilton, Kelton, Miller, Simens, Askell,
+  Welinder, Christiano, Leike, and Lowe]{Ouyang2022}
+Long Ouyang, Jeff Wu, Xu~Jiang, Diogo Almeida, Carroll~L. Wainwright, Pamela
+  Mishkin, Chong Zhang, S.~Agarwal, Katarina Slama, Alex Ray, John Schulman,
+  Jacob Hilton, Fraser Kelton, Luke~E. Miller, M.~Simens, Amanda Askell, Peter
+  Welinder, P.~Christiano, Jan Leike, and Ryan~J. Lowe.
+\newblock Training language models to follow instructions with human feedback.
+\newblock In \emph{Neural Information Processing Systems}, volume
+  abs/2203.02155, 2022.
+\newblock \doi{10.52202/068431-2011}.
+
+\bibitem[Riordan(2020)]{Riordan2020}
+B.~Riordan.
+\newblock Population ecology and environmental variance: Taylor's law.
+\newblock \emph{Oikos}, 2020.
+
+\bibitem[Taori et~al.(2023)Taori, Gulrajani, Zhang, Dubois, Li, Guestrin,
+  Liang, and Hashimoto]{Taori2023}
+Rohan Taori, Ishaan Gulrajani, Tianyi Zhang, Yann Dubois, Xuechen Li, Carlos
+  Guestrin, Percy Liang, and Tatsunori~B. Hashimoto.
+\newblock Stanford alpaca: An instruction-following llama model.
+\newblock \url{https://github.com/tatsu-lab/stanford_alpaca}, 2023.
+
+\bibitem[Taylor(1961)]{Taylor1961}
+L.~R. Taylor.
+\newblock Aggregation, variance and the mean.
+\newblock \emph{Nature}, 189:\penalty0 732--735, 1961.
+\newblock \doi{10.1038/189732a0}.
+
+\bibitem[Wang et~al.(2022)Wang, Wei, Schuurmans, Le, Chi, and Zhou]{Wang2022}
+Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc Le, Ed~H. Chi, and Denny Zhou.
+\newblock Self-consistency improves chain of thought reasoning in language
+  models.
+\newblock In \emph{International Conference on Learning Representations},
+  volume abs/2203.11171, 2022.
+
+\bibitem[\.{Z}atuchin(2026)]{Zatuchin2026}
+D.~\.{Z}atuchin.
+\newblock Where does the noise come from? a variance-components decomposition
+  of non-determinism in llm brand answers.
+\newblock 2026.
+
+\end{thebibliography}
